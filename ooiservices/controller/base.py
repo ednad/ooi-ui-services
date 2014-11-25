@@ -58,7 +58,11 @@ class BaseController(Resource):
         return make_response('', 204)
 
     def response_HTTP404(self):
-        return make_response(jsonify({'error': 'Not Found' } ), 404)
+        return make_response(jsonify({'error': 'Not Found'} ), 404)
+
+    def response_HTTP500(self):
+        return make_response(jsonify({'error': 'internal server error'} ), 500)
+
 
     def process_args(self,model, args, key):
         result = None
